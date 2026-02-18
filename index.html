@@ -1,0 +1,226 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Welcome to Grace Community Church - Transforming Lives Through Christ">
+<title>Grace Community Church</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e3a5f;
+    padding: 1rem;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.hero {
+    text-align: center;
+    padding: 5rem 1rem;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #1e3a5f;
+    color: white;
+}
+
+section {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+form input, form button {
+    padding: 0.7rem;
+    margin: 0.5rem;
+    width: 90%;
+    max-width: 400px;
+}
+
+button {
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16324f;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #1e3a5f;
+    color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        background: #1e3a5f;
+        margin-top: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">Grace Church</h1>
+        <button class="menu-toggle">☰</button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#sermons">Sermons</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Transforming Lives Through Christ</h2>
+    <p>Faith • Hope • Love</p>
+    <button onclick="scrollToSection('membership')">Join Our Community</button>
+</section>
+
+<section id="about">
+    <h2>Our Identity & Values</h2>
+    <p>We are committed to biblical teaching, community outreach, and spiritual growth.</p>
+</section>
+
+<section id="sermons">
+    <h2>Latest Sermons</h2>
+    <div id="sermon-list"></div>
+</section>
+
+<section id="events">
+    <h2>Upcoming Events</h2>
+    <div id="event-list"></div>
+</section>
+
+<section id="membership">
+    <h2>Become a Member</h2>
+    <form id="membershipForm">
+        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <button type="submit">Register</button>
+    </form>
+    <p id="formMessage"></p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>jangaamangale06@gmail.com</p>
+</section>
+
+<footer>
+    <p>© 2026 Grace Community Church | All Rights Reserved</p>
+</footer>
+
+<script>
+// Mobile Menu Toggle
+document.querySelector(".menu-toggle").addEventListener("click", function() {
+    document.querySelector(".nav-links").classList.toggle("active");
+});
+
+// Smooth Scroll
+function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// Load Sermons
+function loadSermons() {
+    const sermons = [
+        { title: "Faith in Difficult Times", preacher: "Pastor Joel" },
+        { title: "Walking in Love", preacher: "Pastor Magdalene" }
+    ];
+
+    const container = document.getElementById("sermon-list");
+
+    sermons.forEach(function(sermon) {
+        const div = document.createElement("div");
+        div.innerHTML = "<h3>" + sermon.title + "</h3><p>" + sermon.preacher + "</p><br>";
+        container.appendChild(div);
+    });
+}
+
+// Load Events
+function loadEvents() {
+    const events = [
+        { name: "Youth Conference", date: "March 10, 2026" },
+        { name: "Community Outreach", date: "April 5, 2026" }
+    ];
+
+    const container = document.getElementById("event-list");
+
+    events.forEach(function(event) {
+        const div = document.createElement("div");
+        div.innerHTML = "<h3>" + event.name + "</h3><p>" + event.date + "</p><br>";
+        container.appendChild(div);
+    });
+}
+
+// Membership Form
+document.getElementById("membershipForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    document.getElementById("formMessage").innerText = "Registration successful!";
+    this.reset();
+});
+
+// Run when page loads
+window.onload = function() {
+    loadSermons();
+    loadEvents();
+};
+</script>
+
+</body>
