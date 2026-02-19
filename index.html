@@ -220,7 +220,34 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
 window.onload = function() {
     loadSermons();
     loadEvents();
-};
+};// Courses Module - appears after registration
+document.getElementById("membershipForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    document.getElementById("formMessage").innerText = "Registration successful!";
+    this.reset();
+
+    // Check if courses section already exists
+    if (!document.getElementById("courses")) {
+        const coursesSection = document.createElement("section");
+        coursesSection.id = "courses";
+        coursesSection.innerHTML = `
+            <h2>Our Courses</h2>
+            <p>Explore the courses we offer to help you grow:</p>
+            <ul>
+                <li>Bible Study</li>
+                <li>Beauty</li>
+                <li>ICT</li>
+            </ul>
+        `;
+        // Insert courses section after membership section
+        const membershipSection = document.getElementById("membership");
+        membershipSection.parentNode.insertBefore(coursesSection, membershipSection.nextSibling);
+
+        // Smooth scroll to courses
+        coursesSection.scrollIntoView({ behavior: "smooth" });
+    
 </script>
+
 
 </body>
