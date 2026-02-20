@@ -201,15 +201,15 @@ function loadSermons() {
             title: "Walking in Love", 
             preacher: "Pastor Magdalene",
             bibleReference: "1 Corinthians 13:4-7",
-            scripture: "Love is patient, love is kind. It does not envy, it does not boast, it is not proud..."
+            scripture: "Love is patient, love is kind. It does not envy, it does not boast, it is not proud...",
             song: "songs/walking-in-love.mp3"
         },
         {
             title: "Delivering from Darkness",
             preacher: "Pastor Joel",
             bibleReference: "Psalm 107:14",
-            scripture: "He brought them out of darkness and the shadow of death, and broke their chains in pieces."
-            song: "songs/faith-in-difficult-time-times.mp3//relative path
+            scripture: "He brought them out of darkness and the shadow of death, and broke their chains in pieces.",
+            song: "songs/faith-in-difficult-time-times.mp3",
         }
     ];
 
@@ -224,7 +224,7 @@ function loadSermons() {
             <p><strong>Reference:</strong> ${sermon.bibleReference}</p>
             <p>${sermon.scripture}</p>
             <audio controls>
-            < source src="${sermon.song}" type"=audio/mpeg">
+            <source src="${sermon.song}" type="audio/mpeg">
             <your browser does not support the audio element>
             </audio>
             <hr>
@@ -288,6 +288,7 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
 
 
 </body>
+
 
 
 
