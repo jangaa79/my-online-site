@@ -219,7 +219,8 @@ function loadSermons() {
 
         const sermonDiv = document.createElement("div");
 
-        sermonDiv.innerHTML = `
+        sermonDiv.innerHTML = ` 
+            `;
             <h3 class="sermon-title" style="cursor:pointer; color:#1e3a5f;">
                 ${sermon.title}
             </h3>
@@ -248,8 +249,7 @@ function loadSermons() {
                 details.style.display = "none";
             }
         });
-
-    });
+);
 // Load Events
 function loadEvents() {
     const events = [
@@ -305,6 +305,7 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
 
 
 </body>
+
 
 
 
