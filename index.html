@@ -127,6 +127,7 @@ footer {
             <li><a href="#about">About</a></li>
             <li><a href="#sermons">Sermons</a></li>
             <li><a href="#events">Events</a></li>
+            <li><a href="#offering">Offering</a></li>
             <li><a href="#membership">Membership</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -190,15 +191,44 @@ function scrollToSection(sectionId) {
 // Load Sermons
 function loadSermons() {
     const sermons = [
-        { title: "Faith in Difficult Times", preacher: "Pastor Joel" },
-        { title: "Walking in Love", preacher: "Pastor Magdalene" }
+        { 
+            title: "Faith in Difficult Times", 
+            preacher: "Pastor Joel",
+            bibleReference: "John 8:12",
+            scripture: "Then Jesus spoke to them again, saying, 'I am the light of the world. Whoever follows me will never walk in darkness, but will have the light of life.'"
+        },
+        { 
+            title: "Walking in Love", 
+            preacher: "Pastor Magdalene",
+            bibleReference: "1 Corinthians 13:4-7",
+            scripture: "Love is patient, love is kind. It does not envy, it does not boast, it is not proud..."
+            song: "songs/walking-in-love.mp3"
+        },
+        {
+            title: "Delivering from Darkness",
+            preacher: "Pastor Joel",
+            bibleReference: "Psalm 107:14",
+            scripture: "He brought them out of darkness and the shadow of death, and broke their chains in pieces."
+            song: "songs/faith-in-difficult-time-times.mp3//relative path
+        }
     ];
 
     const container = document.getElementById("sermon-list");
+    container.innerHTML = ""; // Clear previous content
 
     sermons.forEach(function(sermon) {
         const div = document.createElement("div");
-        div.innerHTML = "<h3>" + sermon.title + "</h3><p>" + sermon.preacher + "</p><br>";
+        div.innerHTML = `
+            <h3>${sermon.title}</h3>
+            <p><strong>Preacher:</strong> ${sermon.preacher}</p>
+            <p><strong>Reference:</strong> ${sermon.bibleReference}</p>
+            <p>${sermon.scripture}</p>
+            <audio controls>
+            < source src="${sermon.song}" type"=audio/mpeg">
+            <your browser does not support the audio element>
+            </audio>
+            <hr>
+        `;
         container.appendChild(div);
     });
 }
@@ -258,6 +288,7 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
 
 
 </body>
+
 
 
 
