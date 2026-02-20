@@ -169,13 +169,14 @@ footer {
 document.querySelector(".menu-toggle").addEventListener("click", function() {
     document.querySelector(".nav-links").classList.toggle("active");
 });
-
+    }
 // Smooth Scroll
 function scrollToSection(sectionId) {
     document.getElementById(sectionId).scrollIntoView({
         behavior: "smooth"
+    }
     });
-}
+
 
 // Load Sermons
 function loadSermons() {
@@ -208,12 +209,7 @@ function loadEvents() {
         container.appendChild(div);
     });
 }
-
-// Run when page loads
-window.onload = function() {
-    loadSermons();
-    loadEvents();
-};// Courses Module - appears after registration
+// Courses Module - appears after registration
 document.getElementById("membershipForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -233,7 +229,7 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
                 <li>Beauty</li>
                 <li>ICT</li>
             </ul>
-        `;
+        );
 
         const membershipSection = document.getElementById("membership");
         membershipSection.parentNode.insertBefore(
@@ -245,10 +241,12 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
     window.onload = function() {
     loadSermons();
     loadEvents();
-    };
+    }
+    });
 </script>
 
 
 </body>
+
 
 
