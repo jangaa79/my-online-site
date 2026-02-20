@@ -213,13 +213,13 @@ function loadEvents() {
     loadEvents();
     }
     
-// Courses Module - appears after registration
+        
+    // Courses Module - appears after registration
 document.getElementById("membershipForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
     document.getElementById("formMessage").innerText = "Registration successful!";
     this.reset();
-
 
     // Check if courses section already exists
     if (!document.getElementById("courses")) {
@@ -242,12 +242,13 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
         );
 
         coursesSection.scrollIntoView({ behavior: "smooth" });
-    
+    }
     });
 </script>
 
 
 </body>
+
 
 
 
