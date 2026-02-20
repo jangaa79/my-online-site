@@ -209,13 +209,6 @@ function loadEvents() {
     });
 }
 
-// Membership Form
-document.getElementById("membershipForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    document.getElementById("formMessage").innerText = "Registration successful!";
-    this.reset();
-});
-
 // Run when page loads
 window.onload = function() {
     loadSermons();
@@ -226,6 +219,7 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
 
     document.getElementById("formMessage").innerText = "Registration successful!";
     this.reset();
+
 
     // Check if courses section already exists
     if (!document.getElementById("courses")) {
@@ -240,15 +234,21 @@ document.getElementById("membershipForm").addEventListener("submit", function(e)
                 <li>ICT</li>
             </ul>
         `;
-        // Insert courses section after membership section
-        const membershipSection = document.getElementById("membership");
-        membershipSection.parentNode.insertBefore(coursesSection, membershipSection.nextSibling);
 
-        // Smooth scroll to courses
+        const membershipSection = document.getElementById("membership");
+        membershipSection.parentNode.insertBefore(
+            coursesSection,
+            membershipSection.nextSibling
+        );
+
         coursesSection.scrollIntoView({ behavior: "smooth" });
-    
+    window.onload = function() {
+    loadSermons();
+    loadEvents();
+    };
 </script>
 
 
 </body>
+
 
